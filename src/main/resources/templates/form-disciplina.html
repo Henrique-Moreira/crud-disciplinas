@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="fragments/layout">
+<div th:fragment="conteudo">
+	<div class="container mt-3">
+		<form action="/cadastra-disciplina" method="post" th:object="${disciplina}">
+			<div class="form-group">
+				<label>Codigo:</label> 
+				<input type="text" th:field="*{codigo}" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Nome:</label> 
+				<input type="text" th:field="*{nome}" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Periodo:</label><br>	
+				
+				<div class="form-check form-check-inline" th:each="n : ${#numbers.sequence(1,5)}">
+				<input type="radio" th:value="${n}" th:field="*{periodo}" class="form-check-input">
+				<label class="form-check-label" th:for="${#ids.prev('periodo')}" th:text="${n}"></label>
+				</div>
+						
+			</div>
+			<div class="form-group">
+				<label>Professor:</label> 
+				<input type="text" th:field="*{professor}" class="form-control">
+			</div>
+			 <button type="submit" class="btn btn-primary">Cadastrar</button>
+		</form>
+	</div>
+</div>
+</html>
