@@ -4,7 +4,7 @@
 	<div class="container mt-3">
 		<form action="/cadastra-disciplina" method="post" th:object="${disciplina}">
 			<div class="form-group">
-				<label>Codigo:</label> 
+				<label>Código:</label> 
 				<input type="text" th:field="*{codigo}" class="form-control">
 			</div>
 			<div class="form-group">
@@ -12,7 +12,7 @@
 				<input type="text" th:field="*{nome}" class="form-control">
 			</div>
 			<div class="form-group">
-				<label>Periodo:</label><br>	
+				<label>Período:</label><br>	
 				
 				<div class="form-check form-check-inline" th:each="n : ${#numbers.sequence(1,5)}">
 				<input type="radio" th:value="${n}" th:field="*{periodo}" class="form-check-input">
